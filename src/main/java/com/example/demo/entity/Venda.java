@@ -1,6 +1,6 @@
 package com.example.demo.entity;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -47,16 +50,17 @@ public class Venda {
 	private Long id;
 	
 	@CreatedDate
-	@Column(name = "createdAt")
-	private LocalDateTime createdAt;
+	@Column(name = "created_at")
+//	@JsonFormat(pattern="yyyy-MM-dd")
+	private Date createdAt;
 	
 	@Column(name = "valor")
 	private Double valor;
 	
-	@Column(name = "vendedorId")
+	@Column(name = "vendedor_id")
 	private Integer vendedorId;
 	
-	@Column(name = "vendedorNome")
+	@Column(name = "vendedor_nome")
 	private String vendedorNome;
 	
 }
